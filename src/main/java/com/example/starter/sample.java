@@ -7,9 +7,20 @@ import io.vertx.core.VertxOptions;
 public class sample {
 
   public static void main(String[] args) {
+
     Vertx vertx = Vertx.vertx(new VertxOptions().setEventLoopPoolSize(10).setWorkerPoolSize(20));
 
-    for (int i = 0; i < 50; i++) {
+    vertx.setTimer(5000, id -> {
+      System.out.println("Hello from Vert.x setTimer!");
+    });
+
+    long l = vertx.setPeriodic(1000, 5000, id -> {
+      System.out.println("Hello from Vert.x setPeriodic!");
+    });
+
+    vertx.cancelTimer(l);
+
+    for (int i = 0; i < 10; i++) {
 
         int taskId = i;
 
