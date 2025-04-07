@@ -10,7 +10,7 @@ public class TestVerticle2 extends AbstractVerticle {
   {
     Context vertxContext = vertx.getOrCreateContext();
 
-    vertxContext.put("name2", "purvik");
+    vertxContext.put("name", "purvik");
 
     System.out.println("MyVerticle2 started" + Thread.currentThread().getName());
   }
